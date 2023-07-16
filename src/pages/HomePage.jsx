@@ -5,12 +5,12 @@ import { setBgColor } from '../features/bgColorSlice'
 import Weather from '../components/Weather'
 import { Box, Typography } from '@mui/material'
 import LoadingWeather from '../components/LoadingWeather'
+import { getCity } from '../utils/citiesCoords'
 
 function HomePage() {
 	const [weather, setWeather] = useState({})
 	const [status, setStatus] = useState('idle')
 	const [error, setError] = useState(null)
-	const [showSunsetSunrise, setShowSunsetSunrise] = useState(false)
 	const dispatch = useDispatch()
 	const unitState = useSelector((state) => state.unit)
 
@@ -29,7 +29,6 @@ function HomePage() {
 				})
 			)
 			setStatus('success')
-			setShowSunsetSunrise(true)
 		} catch (err) {
 			setError(err.message)
 			setStatus('error')
@@ -39,9 +38,8 @@ function HomePage() {
 	const errorCoords = async () => {
 		setStatus('loading')
 		try {
-			const lat = 40.71272659
-			const lon = -74.00601196
-			const data = await getWeatherService({ lat, lon, units: unitState.unit })
+			const city = getCity()
+			const data = await getWeatherService({ lat: city.lat, lon: city.lon, units: unitState.unit })
 			const weather = data.weather[0].main.toLowerCase()
 			const dayTime = data.weather[0].icon.at(-1)
 			setWeather(data)
@@ -51,7 +49,6 @@ function HomePage() {
 				})
 			)
 			setStatus('success')
-			setShowSunsetSunrise(false)
 		} catch (err) {
 			setError(err.message)
 			setStatus('error')
@@ -68,9 +65,7 @@ function HomePage() {
 			<Box>
 				{status === 'idle' && <Box minHeight='100vh'></Box>}
 				{status === 'loading' && <LoadingWeather />}
-				{status === 'success' && (
-					<Weather weather={weather} showSunsetSunrise={showSunsetSunrise} />
-				)}
+				{status === 'success' && <Weather weather={weather} />}
 				{status === 'error' && <Typography>{error}</Typography>}
 			</Box>
 		</Box>

@@ -16,16 +16,16 @@ import { store } from './store/store.js'
 import { ModeThemeProvider } from './context/ModeThemeContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<ModeThemeProvider>
-				<SnackbarProvider maxSnack={2} autoHideDuration={2000}>
-					<CssBaseline />
-					<BrowserRouter>
-						<App />
-					</BrowserRouter>
-				</SnackbarProvider>
-			</ModeThemeProvider>
-		</Provider>
-	</React.StrictMode>
+	// <React.StrictMode>
+	<Provider store={store}>
+		<ModeThemeProvider>
+			<SnackbarProvider maxSnack={2} autoHideDuration={2000}>
+				<CssBaseline />
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
+			</SnackbarProvider>
+		</ModeThemeProvider>
+	</Provider>
+	// </React.StrictMode>
 )
