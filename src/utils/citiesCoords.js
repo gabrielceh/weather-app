@@ -1,16 +1,3 @@
-export const citiesCoords = [
-	{
-		lat: 40.71272659,
-		lon: -74.00601196,
-		name: 'New York',
-	},
-	{
-		lat: 34.05223,
-		lon: -118.24368,
-		name: 'New York',
-	},
-]
-
 export const getCity = () => {
 	const citiesCoords = [
 		{

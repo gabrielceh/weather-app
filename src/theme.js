@@ -22,7 +22,7 @@ const weatherColors = {
 	},
 	'rain-n': {
 		main: '#160e42',
-		contrastText: '#6d56eb',
+		contrastText: '#b9adff',
 	},
 	'snow-d': {
 		main: '#b2deff',
