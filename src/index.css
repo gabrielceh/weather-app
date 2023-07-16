@@ -1,0 +1,36 @@
+body,
+html {
+	scroll-behavior: smooth;
+}
+
+.scroll-container {
+	/* Establece el desbordamiento para mostrar la barra de desplazamiento */
+	overflow: auto;
+
+	/* Personaliza la barra de desplazamiento */
+	/* scrollbar-width: 5px;
+	scrollbar-color: #888 #f1f1f1; */
+}
+
+.scroll-container::-webkit-scrollbar {
+	/* Establece el ancho de la barra de desplazamiento */
+	width: 5px;
+	height: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+	/* Establece el color de fondo de la barra de desplazamiento */
+	background-color: #f1f1f1;
+	border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+	/* Establece el color del pulgar de la barra de desplazamiento */
+	background-color: #888;
+	border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+	/* Establece el color del pulgar de la barra de desplazamiento al pasar el mouse sobre él */
+	background-color: #555;
+}
