@@ -2,7 +2,6 @@ import { LS_FAV } from './LSVariables'
 
 export const getFavoritesList = () => {
 	let favorites = localStorage.getItem(LS_FAV) ? JSON.parse(localStorage.getItem(LS_FAV)) : []
-	console.log(favorites)
 	return favorites
 }
 
@@ -15,7 +14,6 @@ export const isFav = (id) => {
 
 export const addToFav = ({ id, lat, lon, name, country }) => {
 	const favorites = localStorage.getItem(LS_FAV) ? JSON.parse(localStorage.getItem(LS_FAV)) : []
-	console.log(favorites.length)
 	if (favorites.length >= 5) {
 		return { success: false, message: 'Only 5 locations' }
 	}

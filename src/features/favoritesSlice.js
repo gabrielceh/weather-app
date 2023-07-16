@@ -14,7 +14,6 @@ const favoritesSlice = createSlice({
 		addFavorite: (state, { payload }) => {
 			state.status = 'idle'
 			const res = addToFav(payload)
-			console.log(res)
 			if (res.success) {
 				state.favorites = [...state.favorites, payload]
 				state.status = 'success'

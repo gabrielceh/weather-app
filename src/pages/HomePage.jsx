@@ -23,7 +23,6 @@ function HomePage() {
 			const weather = data.weather[0].main.toLowerCase()
 			const dayTime = data.weather[0].icon.at(-1)
 			setWeather(data)
-			console.log(data)
 			dispatch(
 				setBgColor({
 					bgColor: `${weather}-${dayTime}`,

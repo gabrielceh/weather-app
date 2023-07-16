@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { isFav } from '../utils/favoritesFuncionts'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFavorite, removeFavorite, resetStatus } from '../features/favoritesSlice'
+import { enqueueSnackbar } from 'notistack'
 
 function BtnAddRemoveFav({ weather }) {
 	const [isInFav, setIsInFav] = useState(false)
@@ -23,12 +24,30 @@ function BtnAddRemoveFav({ weather }) {
 
 	useEffect(() => {
 		if (favoritesState.status === 'error') {
+			enqueueSnackbar(favoritesState.message, {
+				variant: 'warning',
+				persist: false,
+				anchorOrigin: {
+					horizontal: 'right',
+					vertical: 'top',
+				},
+				preventDuplicate: false,
+			})
 			console.log(favoritesState.message)
 		}
 		if (favoritesState.status === 'success') {
 			setIsInFav(!isInFav)
+			enqueueSnackbar(favoritesState.message, {
+				variant: 'success',
+				persist: false,
+				anchorOrigin: {
+					horizontal: 'right',
+					vertical: 'top',
+				},
+				preventDuplicate: false,
+			})
 		}
-	}, [favoritesState.favorites])
+	}, [favoritesState.favorites, favoritesState.status])
 
 	const handleAddFav = () => {
 		dispatch(

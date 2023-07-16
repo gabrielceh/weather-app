@@ -21,5 +21,4 @@ export const getHoursByLocation = ({ timestamp, countryCode, timezone }) => {
 	let formattedTime = ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2)
 
 	// Mostrar la hora exacta según la zona horaria y el código del país
-	console.log('La hora exacta en ' + countryCode + ' es: ' + formattedTime)
 }

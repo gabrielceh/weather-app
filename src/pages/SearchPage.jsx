@@ -26,7 +26,6 @@ function SearchPage() {
 				lon: searchParams.get('lon'),
 				units,
 			})
-			console.log(data)
 			const weather = data.weather[0].main.toLowerCase()
 			const dayTime = data.weather[0].icon.at(-1)
 			dispatch(

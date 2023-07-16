@@ -23,7 +23,11 @@ function Footer() {
 						mb={1}
 						sx={{ fontWeight: 'bold' }}>
 						Made by{' '}
-						<Link href='https://github.com/gabrielceh' color={`${bgState}.contrastText`}>
+						<Link
+							href='https://github.com/gabrielceh'
+							target='_blank'
+							rel='noreferrer'
+							color={`${bgState}.contrastText`}>
 							Gabriel Cervantes 👨‍💻
 						</Link>
 					</Typography>
