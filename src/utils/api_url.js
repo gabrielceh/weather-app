@@ -1,7 +1,7 @@
 const KEY = import.meta.env.VITE_API_KEY
 const KEY_TIMEZONE = import.meta.env.VITE_API_KEY_TIMEZONE
 
-export const API_CITIES = `http://api.openweathermap.org/geo/1.0/direct?appid=${KEY}&limit=10&q=`
+export const API_CITIES = `https://api.openweathermap.org/geo/1.0/direct?appid=${KEY}&limit=10&q=`
 
 export const API_WEATHER = `https://api.openweathermap.org/data/2.5/weather?appid=${KEY}`
 
