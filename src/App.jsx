@@ -15,7 +15,7 @@ function App() {
 				minHeight: '100vh',
 			}}>
 			<Header />
-			<Container maxWidth='sm' sx={{ mt: 3, minHeight: '100vh' }}>
+			<Container maxWidth='sm' sx={{ mt: 3, minHeight: '80vh' }}>
 				<AppRouter />
 			</Container>
 			<Footer />
