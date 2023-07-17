@@ -46,7 +46,7 @@ function Weather({ weather, showSunsetSunrise = true }) {
 				/>
 			</Box>
 
-			<Forecast forecast={weather.forecast} unit={unitState.temp} />
+			<Forecast forecast={weather.forecast} unit={unitState.temp} zone={weather.zone} />
 
 			<GridWeatherInfo unitState={unitState} weather={weather} />
 

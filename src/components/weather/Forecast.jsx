@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Box, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
+import { getCountryDate, getCountryHour, getCountryOnlyDate } from '../../utils/getCountryHours'
 
-function Forecast({ forecast, unit }) {
+function Forecast({ forecast, unit, zone }) {
 	const bgState = useSelector((state) => state.bgColor)
+	console.log(forecast)
 
 	return (
 		<Box
@@ -31,8 +33,10 @@ function Forecast({ forecast, unit }) {
 						color: `${bgState}.main`,
 						textAlign: 'center',
 					}}>
-					<Typography variant='body2'>{new Date(item.dt * 1000).toLocaleTimeString()}</Typography>
-					<Typography variant='body2'>{new Date(item.dt * 1000).toDateString()}</Typography>
+					<Typography variant='body2'>{getCountryHour(item.dt, zone)}</Typography>
+					<Typography variant='body2'>
+						{getCountryOnlyDate(item.dt, zone, forecast.city.country)}
+					</Typography>
 					<Box component='article'>
 						<img
 							src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
