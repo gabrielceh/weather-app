@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Box, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
-import { getCountryDate, getCountryHour, getCountryOnlyDate } from '../../utils/getCountryHours'
+import { getCountryHour, getCountryOnlyDate } from '../../utils/getCountryHours'
 
 function Forecast({ forecast, unit, zone }) {
 	const bgState = useSelector((state) => state.bgColor)
-	console.log(forecast)
 
 	return (
 		<Box
